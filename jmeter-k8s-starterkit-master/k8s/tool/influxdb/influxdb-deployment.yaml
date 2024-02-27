@@ -35,3 +35,16 @@ spec:
         - name: var-lib-influxdb
           persistentVolumeClaim:
             claimName: influxdb-pvc
+
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: influxdb-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: influxdb
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 10
