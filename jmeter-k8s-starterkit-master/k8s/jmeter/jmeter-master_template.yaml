@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: jmeter-master<exec_num>
+  name: jmeter-master-exec-num
   labels:
     jmeter_mode: master
 spec:
