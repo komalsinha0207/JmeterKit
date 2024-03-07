@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: jmeter-slaves<exec_num>
+  name: jmeter-slaves-1
   labels:
     jmeter_mode: slave
 spec:
@@ -39,7 +39,6 @@ spec:
               mbean = "java.lang:name=*,type=GarbageCollector"
               paths = ["LastGcInfo"]
               tag_keys = ["name"]
-
 
             [[inputs.jolokia2_agent.metric]]
               name  = "java_threading"
