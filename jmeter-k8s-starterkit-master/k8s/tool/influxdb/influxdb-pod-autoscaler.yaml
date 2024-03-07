@@ -10,9 +10,10 @@ spec:
   minReplicas: 1
   maxReplicas: 5
   targetCPUUtilizationPercentage: 10
-- type: Resource
-      resource:
-        name: memory
-        target:
-          type: Utilization
-          averageUtilization: 50
+  metrics:
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 50
