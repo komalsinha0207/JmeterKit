@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: jmeter-master-exec-num
+  name: jmeter-master<exec_num>
   labels:
     jmeter_mode: master
 spec:
@@ -111,3 +111,4 @@ spec:
         - name: jmeter-data-dir
           persistentVolumeClaim:
             claimName: jmeter-data-dir-pvc
+
