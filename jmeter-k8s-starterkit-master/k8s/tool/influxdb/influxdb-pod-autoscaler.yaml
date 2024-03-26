@@ -1,4 +1,4 @@
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: influxdb-hpa
@@ -18,4 +18,5 @@ spec:
     resource:
       name: memory
       targetAverageUtilization: 10
+
 
