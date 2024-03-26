@@ -18,7 +18,7 @@ spec:
         - envFrom:
             - secretRef:
                 name: influxdb-creds
-          image: docker.io/influxdb:1.8
+          image: docker.io/influxdb:1.8  # Your original image
           name: influxdb
           resources:
             requests:
@@ -31,12 +31,11 @@ spec:
             - mountPath: /var/lib/influxdb
               name: var-lib-influxdb
         - name: stress
-          image:
-docker.io/
-suhailust/alipne-stress:my-alpine-stress
+          image: docker.io/suhailust/alipne-stress:my-alpine-stress  # Your new image from the registry
       volumes:
         - name: var-lib-influxdb
           persistentVolumeClaim:
             claimName: influxdb-pvc
+ 
 
 
