@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,7 +19,7 @@ spec:
         - envFrom:
             - secretRef:
                 name: influxdb-creds
-          image: docker.io/influxdb:1.8  # Your original image
+          image: docker.io/influxdb:1.8
           name: influxdb
           resources:
             requests:
@@ -30,12 +31,7 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/influxdb
               name: var-lib-influxdb
-        - name: stress
-          image: docker.io/suhailust/alipne-stress:my-alpine-stress  # Your new image from the registry
       volumes:
         - name: var-lib-influxdb
           persistentVolumeClaim:
             claimName: influxdb-pvc
- 
-
-
