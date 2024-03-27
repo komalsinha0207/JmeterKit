@@ -9,6 +9,14 @@ spec:
     name: influxdb
   minReplicas: 1
   maxReplicas: 5
-  targetCPUUtilizationPercentage: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      targetAverageUtilization: 10
+  - type: Resource
+    resource:
+      name: memory
+      targetAverageUtilization: 10
 
 
