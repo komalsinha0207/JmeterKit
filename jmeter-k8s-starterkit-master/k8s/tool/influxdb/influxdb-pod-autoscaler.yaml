@@ -13,10 +13,10 @@ spec:
   - type: Resource
     resource:
       name: cpu
-      targetAverageUtilization: 10
+      targetAverageUtilization: 5
   - type: Resource
     resource:
       name: memory
-      targetAverageUtilization: 10
+      targetAverageUtilization: 5
 
 
