@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -19,8 +18,20 @@ spec:
         - envFrom:
             - secretRef:
                 name: influxdb-creds
-          image: docker.io/influxdb:1.8
+          image: docker.io/influxdb:1.8  # Your original image
           name: influxdb
+          resources:
+            requests:
+              memory: "1024Mi"
+              cpu: "512m"
+            limits:
+              memory: "1024Mi"
+              cpu: "512m"
+          volumeMounts:
+            - mountPath: /var/lib/influxdb
+              name: var-lib-influxdb
+        - name: stress
+          image: docker.io/nmeyerhans/stress  # Your new image from the registry
           resources:
             requests:
               memory: "1024Mi"
