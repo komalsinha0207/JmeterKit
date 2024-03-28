@@ -1,4 +1,4 @@
-apiVersion: autoscaling/v2beta2
+apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
   name: influxdb-hpa
@@ -9,14 +9,4 @@ spec:
     name: influxdb
   minReplicas: 1
   maxReplicas: 5
-  metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      targetAverageUtilization: 5
-  - type: Resource
-    resource:
-      name: memory
-      targetAverageUtilization: 5
-
-
+  targetCPUUtilizationPercentage: 5
