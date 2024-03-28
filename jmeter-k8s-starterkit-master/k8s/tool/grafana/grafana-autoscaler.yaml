@@ -1,4 +1,4 @@
-apiVersion: autoscaling/v2beta1
+apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
   name: grafana-hpa
@@ -9,9 +9,6 @@ spec:
     name: grafana  # Replace with your Grafana deployment name
   minReplicas: 1  # Minimum number of replicas
   maxReplicas: 5  # Maximum number of replicas
-  metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      targetAverageUtilization: 50  # Target average CPU utilization percentage
+  targetCPUUtilizationPercentage: 50  # Target average CPU utilization percentage
+
 
