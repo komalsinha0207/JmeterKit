@@ -13,5 +13,5 @@ spec:
     - type: Pods
       pods:
         metricName: cpu
-        targetAverageUtilization: 50
+        targetAverageUtilization: 5
 
