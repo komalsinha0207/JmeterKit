@@ -17,6 +17,6 @@ spec:
  - type: Pods
     pods:
       metricName: memory
-      targetAverageUtilization: 50
+      targetAverageUtilization: 5
 
 
