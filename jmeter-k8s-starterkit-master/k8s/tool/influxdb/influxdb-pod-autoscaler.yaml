@@ -10,14 +10,14 @@ spec:
   minReplicas: 1
   maxReplicas: 5
   metrics:
-    - type: Resource
-      resource:
-        name: cpu
-        targetAverageUtilization: 5
-    - type: Resource
-      resource:
-        name: memory
-        targetAverageUtilization: 5
+    - type: Pods
+      pods:
+        metricName: cpu
+        targetAverageValue: 5
+    - type: Pods
+      pods:
+        metricName: memory
+        targetAverageValue: 5
 
 
 # apiVersion: autoscaling/v2
