@@ -1,4 +1,4 @@
-apiVersion: autoscaling/v2beta2
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: influxdb-hpa
@@ -10,35 +10,15 @@ spec:
   minReplicas: 1
   maxReplicas: 5
   metrics:
-    - type: Pods
-      pods:
-        metricName: cpu
-        targetAverageValue: 5
-    - type: Pods
-      pods:
-        metricName: memory
-        targetAverageValue: 5
-
-
-# apiVersion: autoscaling/v2
-# kind: HorizontalPodAutoscaler
-# metadata:
-#  name: influxdb-hpa
-# spec:
-#  scaleTargetRef:
-#     apiVersion: apps/v1
-#     kind: Deployment
-#     name: influxdb
-#  minReplicas: 1
-#  maxReplicas: 5
-#  metrics:
-#  - type: Pods
-#     pods:
-#       metricName: cpu
-#       targetAverageUtilization: 5
-#  - type: Pods
-#     pods:
-#       metricName: memory
-#       targetAverageUtilization: 5
-
-
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 90
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 90
